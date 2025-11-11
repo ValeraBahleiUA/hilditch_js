@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://unpkg.com/98.css" />
+    <link rel="stylesheet" href="style.css">
+    <title>Thinning by Valerii B</title>
+  </head>
+  <body>
+
+  <div class="window" style="width: 300px">
+    <div class="title-bar">
+      <div class="title-bar-text">Hilditch Skeletonization</div>
+      <div class="title-bar-controls">
+        <button aria-label="Close" id="rst_btn"></button>
+      </div>
+    </div>
+    <div class="window-body">
+      <menu role="tablist">
+        <li role="tab" id="tab_bin" class="viewport_tab"><a href="#tabs" >Бінарнe зображення</a></li>
+        <li role="tab" id="tab_skele" class="viewport_tab"><a href="#tabs" >Скелетон</a></li>
+        <li role="tab" id="tab_points" class="viewport_tab"><a href="#tabs">Розгалуження та кінці</a></li>
+      </menu>
+      <div class="window" role="tabpanel">
+        <div class="window-body">
+
+
+
+
+          <label id="dropzone" style="cursor: pointer;width: 100%">
+            <input type="file" id="file_input" accept="image/*" style="display: none;width: 100%"/>
+            <canvas id="the_canvas" class="canvas" width="512px" height="512px";>
+              no canvas support
+            </canvas>
+          </label>
+
+
+
+        </div>
+      </div>
+
+      <button style="margin-top: 5px" disabled id="rerun_btn">Повтор</button>
+
+      <fieldset style="margin-top: 5px">
+        <legend>Алгоритм</legend>
+        <div class="field-row">
+          <input id="hilditch" type="radio" name="algo">
+          <label for="hilditch">Hilditch</label>
+        </div>
+
+        <div class="field-row">
+          <input id="hilditch_plus" type="radio" name="algo" checked>
+          <label for="hilditch_plus" style="color: purple">Hilditch+</label>
+        </div>
+
+      </fieldset>
+      <div class="field-row" style="width: 100%; margin-top: 5px;">
+        <label for="range22">Трешхолд:</label>
+        <label for="threshold_range">50</label>
+        <input id="threshold_range" type="range" min="1" max="200" value="128" />
+        <label for="range24">200</label>
+      </div>
+
+      <div class="status-bar" style="margin-top: 5px;">
+        <p class="status-bar-field">Час Виконання: <span id="exectime">0</span> мілісекунд. <span id="exectime_diff"></span></p>
+      </div>
+
+
+    </div>
+  </div>
+
+
+
+    <div style="display: none" id="imgs">
+
+    </div>
+    <script src="dnd.js"></script>
+    <script src="image.js"></script>
+    <script src="events.js"></script>
+    <script src="index.js"></script>
+
+  </body>
+</html>
